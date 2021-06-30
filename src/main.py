@@ -1,18 +1,17 @@
-from utils import tablero
-
-tablero = tablero()
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+from NoClasses import *
+tablero_usuario = np.full((10,10), " ")
+tablero_maquina = np.full((10,10), " ")
+tablero_maquina_golpes = np.full((10,10), " ")
+tablero_usuario_golpes = np.full((10,10), " ")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('Hola')
+    tablero_maquina =  crear_tablero(tablero_maquina, maquina = True)
+    print(tablero_maquina)
+    tablero_usuario = crear_tablero(tablero_usuario, maquina = True)
+    print(tablero_usuario)
+    for i in range(90):
+        tablero_usuario_golpes = disparar(tablero_usuario, np.random.randint(0,9), np.random.randint(0,9))
+    print(tablero_usuario_golpes)
+    print(tablero_usuario)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
