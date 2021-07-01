@@ -138,3 +138,4 @@ dump.py
 constantes.py
 utils.py
 temp.py
+errors.py
