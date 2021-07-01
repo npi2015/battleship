@@ -38,4 +38,4 @@ if __name__ == '__main__':
             print(tablero_maquina)
             juego_en_progreso = False
 
-# TODO: implementar que el jugador pueda meter las coordenadas a mano
+# TODO:  implementar que el jugador pueda meter las coordenadas a mano
