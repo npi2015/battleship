@@ -1,5 +1,4 @@
 import numpy as np
-from errors import *
 import re
 
 
