@@ -2,11 +2,12 @@ import numpy as np
 
 
 def input_barco(tamanio):
+    barcos = {4 : "portaaviones", 3: "acorazado", 2: "fragata", 1: "submarino"}
     columnas = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9}
     filas = list(map(str, list(range(1, 11))))
     nseo = ['N', 'S', 'E', 'O']
 
-    print(f'\nVamos a posicionar un barco de tamaño {tamanio}')
+    print(f'\nVamos a posicionar un {barcos[tamanio]} de tamaño {tamanio}')
 
     while True:
         x_user = input('Introduce la columna, valores posibles A hasta J: ')
