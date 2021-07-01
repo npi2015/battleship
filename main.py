@@ -6,9 +6,3 @@ print(tablero_maquina)
 
 tablero_usuario = tb.crea_tablero_usuario(10, 10)
 print(tablero_usuario)
-
-
-
-
-
-
