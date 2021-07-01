@@ -1,9 +1,8 @@
 import numpy as np
 from string import ascii_uppercase
-from tablero import crea_tablero_aleatorio
 
 
-def pintar_1_tablero(tablero, titulo):
+def pinta_1_tablero(tablero, titulo):
     print(titulo)
     print('    ===================')
     print('   ', *list(ascii_uppercase[:10]))
@@ -16,7 +15,8 @@ def pintar_1_tablero(tablero, titulo):
 
     print('    -------------------')
 
-def pintar_2_tableros(tablero1, tablero2, titulo1, titulo2):
+
+def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
     print()
     print(titulo1, '\t\t ', titulo2)
     print('    ===================\t\t\t===================')
@@ -33,10 +33,12 @@ def pintar_2_tableros(tablero1, tablero2, titulo1, titulo2):
 
     print('    -------------------\t\t\t-------------------')
 
+
 if __name__ == '__main__':
+    from tablero import crea_tablero_aleatorio
 
     tablero1 = crea_tablero_aleatorio(10, 10)
     tablero2 = crea_tablero_aleatorio(10, 10)
 
-    pintar_1_tablero(tablero1, '        Tu tablero')
-    pintar_2_tableros(tablero1, tablero2, '        Tu tablero', '    Impactos en el contario')
+    pinta_1_tablero(tablero1, '        Tu tablero')
+    pinta_2_tableros(tablero1, tablero2, '        Tu tablero', '    Impactos en el contario')
