@@ -1,11 +1,25 @@
 import numpy as np
+from visualizacion import pinta_1_tablero
 
 
 def input_barco(tamanio):
-    barcos = {4 : "portaaviones", 3: "acorazado", 2: "fragata", 1: "submarino"}
+    '''
+    Función que pide al usuario, y verifica, las coordenadas y orientación para un barco
+
+    :param tamanio: tamaño del barco a pintar
+    :return: 3 strings:
+                - y (fila)
+                - x (columna)
+                - orientación
+    '''
+
+    barcos = {4: "portaaviones", 3: "acorazado", 2: "fragata", 1: "submarino"}
     columnas = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9}
     filas = list(map(str, list(range(1, 11))))
     nseo = ['N', 'S', 'E', 'O']
+
+    ## Inicialización en caso de que el tamanio sea 1 y no lo pida al usuario
+    orientacion_user = 'N'
 
     print(f'\nVamos a posicionar un {barcos[tamanio]} de tamaño {tamanio}')
 
@@ -24,7 +38,7 @@ def input_barco(tamanio):
         else:
             print(f'{y_user} no es un número válido')
 
-    while True:
+    while True and (tamanio > 1):
         orientacion_user = input('Introduce la orientación del barco, valores posibles N,S,E,O: ')
         orientacion_user = orientacion_user.strip().upper()
         if orientacion_user in nseo:
@@ -45,7 +59,7 @@ def pintar_barco(tablero, tamanio, orientacion, y, x):
     :param y: fila del punto inicial a partir del cual pintar el barco
     :param x: columna del punto inicial a partir del cual pintar el barco
 
-    :return: True en caso de se haya podido pintar el barco en la orientación y coordinadas dadas.
+    :return: True en caso de se haya  pintado el barco en la orientación y coordinadas dadas.
              False en caso contrario.
     """
 
@@ -122,7 +136,7 @@ def posicionar_barco_usuario(tablero, tamanio):
             break
         else:
             print(f'En la posicion {x}{y} con orientación {orientacion} no se puede colocar un barco de'
-                  f' tamaño {tamanio}. Vuelve a introducir otra localización')
+                  f' tamaño {tamanio}. Vuelve a introducir otra localización\n')
 
 
 def crea_tablero_aleatorio(ancho, alto):
@@ -185,6 +199,8 @@ def crea_tablero_usuario(ancho, alto):
 
     for barco in barcos:
         if not aleatorio:
+            print()
+            pinta_1_tablero(tablero, '        Tu tablero')
             posicionar_barco_usuario(tablero, barco)
 
             aleatorio_user = input('¿Quieres que los siguientes barcos se posicionen aleatoriamente? (Y): ')
