@@ -2,13 +2,11 @@ import numpy as np
 from errors import *
 import re
 
-
-tablero_usuario = np.full((10,10), " ")
-tablero_maquina = np.full((10,10), " ")
-tablero_maquina_golpes = np.full((10,10), " ")
-tablero_usuario_golpes = np.full((10,10), " ")
 barcos = {"portaaviones" : 4, "acorazado" : 3, "fragata" : 2, "submarino" : 1}
 lista_de_letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+
+def crear_tablero():
+    return np.full((10,10), " ")
 
 def colocar_submarino(tablero, coordenada_inicial_x, coordenada_inicial_y):
     if tablero[coordenada_inicial_x, coordenada_inicial_y] != " ":
@@ -16,6 +14,7 @@ def colocar_submarino(tablero, coordenada_inicial_x, coordenada_inicial_y):
     else:
         tablero[coordenada_inicial_x, coordenada_inicial_y] = "1"
     return tablero
+
 def colocar_barco(tablero, coordenada_inicial_x, coordenada_inicial_y, orientacion, barco):
     if orientacion == "norte" and not all(
             np.where(tablero[coordenada_inicial_x: coordenada_inicial_x - barcos[barco]:-1, coordenada_inicial_y] == " ",
@@ -63,6 +62,8 @@ def disparar(tablero, coordenada_x, coordenada_y):
     else:
         tablero[coordenada_x, coordenada_y] = "-"
         print("Has fallado")
+    tablero = np.where(np.isin(tablero,["1", "2", "3", "4"]) , " ", tablero)
+    print(tablero)
     return tablero
 
 
@@ -102,10 +103,7 @@ def orientacion_valida():
         orientacion = orientacion.lower()
     return orientacion
 
-juego_en_progreso = False
-
-
-def crear_tablero(tablero, usuario = False, maquina = False):
+def fase_preliminar(tablero, usuario = False, maquina = False):
     fase_preliminar = True
     if maquina:
         barcos_colocados_maquina = []
