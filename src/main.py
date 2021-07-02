@@ -9,7 +9,7 @@ juego_en_progreso = True
 if __name__ == '__main__':
     tablero_maquina = crea_tablero_aleatorio(10, 10)
     tablero_usuario = crea_tablero_usuario(10, 10)
-    pinta_1_tablero(tablero_usuario, "Tablero del usuario")
+    pinta_1_tablero(tablero_usuario, "        Tu tablero")
     while juego_en_progreso:
         # Turno del usuario
         coordenadas = input("¿A qué coordenadas quieres disparar?(formato: A7) ")
@@ -26,14 +26,14 @@ if __name__ == '__main__':
             # Imprimimos los golpes que ha dado el usuario
             pinta_1_tablero(tablero_usuario_golpes, "Golpes dados al enemigo")
             print("\n TURNO DE LA MÁQUINA")
-            time.sleep(5)
+            time.sleep(1)
             #Turno de la maquina
             tablero_maquina_golpes = disparar(tablero_usuario, np.random.randint(0, 9), np.random.randint(0, 9), random = True)
 
             # Imprimimos los golpes recibidos por el usuario
             # pinta_1_tablero(tablero_usuario, "        Tu tablero")
             print("\n TU TURNO")
-            pinta_2_tableros(tablero_usuario, tablero_usuario_golpes, '        Tu tablero', '    Impactos en el contario')
+            pinta_2_tableros(tablero_usuario, tablero_usuario_golpes, '          Tu tablero', '   Impactos al contario')
 
             # Miramos si ha ganado la maquina
             if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):

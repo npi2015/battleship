@@ -9,7 +9,7 @@ def disparar(tablero, coordenada_x, coordenada_y, random = False) :
         if random is False:
             print("Impacto, puedes disparar de nuevo")
             coordenadas = input("Introduce nuevas coordenadas: ")
-            usuario_coordenada_x, usuario_coordenada_y = valid_input(coordenadas)
+            usuario_coordenada_y, usuario_coordenada_x = valid_input(coordenadas)
             disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
 
         else:
@@ -27,7 +27,7 @@ def disparar(tablero, coordenada_x, coordenada_y, random = False) :
         else:
             print("Ahí ya has disparado")
             coordenadas = input("Introduce nuevas coordenadas: ")
-            usuario_coordenada_x, usuario_coordenada_y = valid_input(coordenadas)
+            usuario_coordenada_y, usuario_coordenada_x = valid_input(coordenadas)
             disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
 
     else:
