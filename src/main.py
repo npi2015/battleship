@@ -1,6 +1,5 @@
-from functions import disparar, valid_input
+from functions import *
 from tablero import crea_tablero_usuario, crea_tablero_aleatorio
-from visualizacion import *
 import numpy as np
 import time
 

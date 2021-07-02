@@ -79,6 +79,12 @@ Un tablero en una fase más adelantada del juego puede parecer así
                 10 |        -          |
                     -------------------
 ```
+## Recursos utilizados
+* Lenguaje utilizado: Python 3.9.5
+  * Librerías: 
+    * numpy 
+    * string
+    * re
 
 ## Contribuidores
 Este proyecto ha sido elaborado por:

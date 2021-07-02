@@ -1,6 +1,6 @@
 import numpy as np
 import re
-from visualizacion import pinta_2_tableros
+from string import ascii_uppercase
 
 
 def disparar(tablero, coordenada_x, coordenada_y, random = False) :
@@ -60,8 +60,34 @@ def valid_input(coordenadas):
         fila = 9
     return columna, fila
 
+def pinta_1_tablero(tablero, titulo):
+    print(titulo)
+    print('    ===================')
+    print('   ', *list(ascii_uppercase[:10]))
+    print('    -------------------')
+
+    for i in range(10):
+        print('{:2} |'.format(i+1), end="")
+        print(*tablero[i], end="")
+        print('|')
+
+    print('    -------------------')
 
 
-# TODO: prettify printed tablero
-# TODO: add loops for actual playability
-# FIX: submarines cannot be placed facing outwards in the edges
+def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
+    print()
+    print(titulo1, '     ', titulo2)
+    print('    ===================       ===================')
+    print('   ', *list(ascii_uppercase[:10]), '     ', *list(ascii_uppercase[:10]))
+    print('    -------------------       -------------------')
+
+    for i in range(10):
+        print('{:2} |'.format(i+1), end="")
+        print(*tablero1[i], end="")
+        print('|  ', end="")
+        print('{:2} |'.format(i+1), end="")
+        print(*tablero2[i], end="")
+        print('|')
+
+    print('    -------------------       -------------------')
+
