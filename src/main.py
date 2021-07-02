@@ -12,32 +12,35 @@ if __name__ == '__main__':
     pinta_1_tablero(tablero_usuario, "Tablero del usuario")
     while juego_en_progreso:
         # Turno del usuario
-        coordenadas = input("A que coordenadas quieres disparar")
-        coordenada_x, coordenada_y = valid_input(coordenadas)
+        coordenadas = input("¿A qué coordenadas quieres disparar?(formato: A7) ")
+        coordenada_y, coordenada_x = valid_input(coordenadas)
         tablero_usuario_golpes = disparar(tablero_maquina, coordenada_x, coordenada_y)
-        # Checkear si hemos hundido todos los barcos
+
+        # Checkear si hemos hundido todos los barcos -> Jugador gana
         if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
             print("Ha ganado la maquina")
             pinta_1_tablero(tablero_maquina, "Tablero de la maquina")
             pinta_1_tablero(tablero_usuario, "Tu tablero")
-            break
-
-        # Imprimimos los golpes que ha dado el usuario
-        pinta_1_tablero(tablero_usuario_golpes, "Golpes dados al enemigo")
-        print("\n Turno de la maquina")
-        time.sleep(5)
-        #Turno de la maquina
-        tablero_maquina_golpes = disparar(tablero_usuario, np.random.randint(0, 9), np.random.randint(0, 9), random = True)
-
-        # Imprimimos los golpes recibidos por el usuario
-        pinta_1_tablero(tablero_usuario, "Golpes recibidos")
-
-        # Miramos si ha ganado la maquina
-        if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
-            print("Has ganado!")
-            pinta_1_tablero(tablero_usuario, "Tu tablero")
-            pinta_1_tablero(tablero_maquina, "Tablero del enemigo")
             juego_en_progreso = False
+        else:
+            # Imprimimos los golpes que ha dado el usuario
+            pinta_1_tablero(tablero_usuario_golpes, "Golpes dados al enemigo")
+            print("\n TURNO DE LA MÁQUINA")
+            time.sleep(5)
+            #Turno de la maquina
+            tablero_maquina_golpes = disparar(tablero_usuario, np.random.randint(0, 9), np.random.randint(0, 9), random = True)
+
+            # Imprimimos los golpes recibidos por el usuario
+            # pinta_1_tablero(tablero_usuario, "        Tu tablero")
+            print("\n TU TURNO")
+            pinta_2_tableros(tablero1, tablero2, '        Tu tablero', '    Impactos en el contario')
+
+            # Miramos si ha ganado la maquina
+            if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
+                print("Has ganado!")
+                pinta_1_tablero(tablero_usuario, "        Tu tablero")
+                pinta_1_tablero(tablero_maquina, "Tablero del enemigo")
+                juego_en_progreso = False
 
 print("ACABADO")
 # TODO:  implementar que el jugador pueda meter las coordenadas a mano
