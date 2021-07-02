@@ -1,31 +1,44 @@
 import numpy as np
-from errors import *
 import re
 
 
 def disparar(tablero, coordenada_x, coordenada_y, random = False) :
+
     if tablero[coordenada_x, coordenada_y] in ["1", "2", "3", "4"]:
         tablero[coordenada_x, coordenada_y] = "X"
         if random is False:
-            print("Impacto")
+            print("Impacto, puedes disparar de nuevo")
+            coordenadas = input("Introduce nuevas coordenadas")
+            usuario_coordenada_x, usuario_coordenada_y = valid_input(coordenadas)
+            disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
+
         else:
             print("Impacto de la maquina")
+            nueva_coordenada_x = np.random.randint(low=0, high=10)
+            nueva_coordenada_y = np.random.randint(low=0, high=10)
+            disparar(tablero, nueva_coordenada_x, nueva_coordenada_y, random=True)
+
     elif tablero[coordenada_x, coordenada_y] in ["X", "-"]:
         if random is True:
             nueva_coordenada_x = np.random.randint(low=0, high=10)
             nueva_coordenada_y = np.random.randint(low=0, high=10)
             disparar(tablero, nueva_coordenada_x, nueva_coordenada_y, random = True)
+
         else:
             print("Ahí ya has disparado")
             coordenadas = input("Introduce nuevas coordenadas")
             usuario_coordenada_x, usuario_coordenada_y = valid_input(coordenadas)
             disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
+
     else:
         tablero[coordenada_x, coordenada_y] = "-"
+
         if random is False:
             print("Has fallado")
+
         else:
             print("La maquina ha fallado")
+
     tablero = np.where(np.isin(tablero,["1", "2", "3", "4"]) , " ", tablero)
     return tablero
 
