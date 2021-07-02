@@ -7,6 +7,15 @@ import time
 juego_en_progreso = True
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    print("""
+  _    _                 _           _           __ _       _        
+ | |  | |               | (_)       | |         / _| |     | |       
+ | |__| |_   _ _ __   __| |_ _ __   | | __ _   | |_| | ___ | |_ __ _ 
+ |  __  | | | | '_ \ / _` | | '__|  | |/ _` |  |  _| |/ _ \| __/ _` |
+ | |  | | |_| | | | | (_| | | |     | | (_| |  | | | | (_) | || (_| |
+ |_|  |_|\__,_|_| |_|\__,_|_|_|     |_|\__,_|  |_| |_|\___/ \__\__,_|
+                                                                    
+    """)
     tablero_maquina = crea_tablero_aleatorio(10, 10)
     tablero_usuario = crea_tablero_usuario(10, 10)
     pinta_1_tablero(tablero_usuario, "        Tu tablero")
@@ -16,12 +25,12 @@ if __name__ == '__main__':
         coordenada_y, coordenada_x = valid_input(coordenadas)
         tablero_usuario_golpes = disparar(tablero_maquina, coordenada_x, coordenada_y)
 
-        # Checkear si hemos hundido todos los barcos -> Jugador gana
-        if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
-            print("Ha ganado la maquina")
-            pinta_1_tablero(tablero_maquina, "Tablero de la maquina")
-            pinta_1_tablero(tablero_usuario, "        Tu tablero")
+        # Miramos si ha ganado el usuario
+        if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
+            print("Has ganado!")
+            pinta_2_tableros(tablero_usuario, tablero_maquina, '        Tu tablero', '    Tablero de la máquina')
             juego_en_progreso = False
+
         else:
             # Imprimimos los golpes que ha dado el usuario
             pinta_1_tablero(tablero_usuario_golpes, "Golpes dados al enemigo")
@@ -35,11 +44,10 @@ if __name__ == '__main__':
             print("\n TU TURNO")
             pinta_2_tableros(tablero_usuario, tablero_usuario_golpes, '          Tu tablero', '   Impactos al contario')
 
-            # Miramos si ha ganado la maquina
-            if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
-                print("Has ganado!")
-                pinta_1_tablero(tablero_usuario, "        Tu tablero")
-                pinta_1_tablero(tablero_maquina, "Tablero del enemigo")
+            # Checkear si todos nuestros barcos estan hundidos -> maquina gana
+            if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
+                print("Ha ganado la maquina")
+                pinta_2_tableros(tablero_maquina, tablero_usuario, "    Tablero de la máquina", '    Tu tablero')
                 juego_en_progreso = False
 
 print("ACABADO")

@@ -1,5 +1,6 @@
 import numpy as np
 import re
+from visualizacion import pinta_2_tableros
 
 
 def disparar(tablero, coordenada_x, coordenada_y, random = False) :

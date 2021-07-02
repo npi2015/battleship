@@ -19,9 +19,9 @@ def pinta_1_tablero(tablero, titulo):
 def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
     print()
     print(titulo1, '     ', titulo2)
-    print('     ===================      ===================')
+    print('    ===================       ===================')
     print('   ', *list(ascii_uppercase[:10]), '     ', *list(ascii_uppercase[:10]))
-    print('     -------------------      -------------------')
+    print('    -------------------       -------------------')
 
     for i in range(10):
         print('{:2} |'.format(i+1), end="")
@@ -31,7 +31,7 @@ def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
         print(*tablero2[i], end="")
         print('|')
 
-    print('     -------------------      -------------------')
+    print('    -------------------       -------------------')
 
 
 if __name__ == '__main__':
@@ -41,4 +41,5 @@ if __name__ == '__main__':
     tablero2 = crea_tablero_aleatorio(10, 10)
 
     pinta_1_tablero(tablero1, '        Tu tablero')
-    pinta_2_tableros(tablero1, tablero2, '        Tu tablero', '    Impactos en el contario')
+    pinta_2_tableros(tablero1, tablero2, "    Tablero de la máquina", '    Tu tablero')
+
