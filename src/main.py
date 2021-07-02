@@ -34,7 +34,7 @@ if __name__ == '__main__':
             # Imprimimos los golpes que ha dado el usuario
             pinta_1_tablero(tablero_usuario_golpes, "Golpes dados al enemigo")
             print("\n TURNO DE LA MÁQUINA")
-            time.sleep(1)
+            time.sleep(2)
             #Turno de la maquina
             tablero_maquina_golpes = disparar(tablero_usuario, np.random.randint(0, 9), np.random.randint(0, 9), random = True)
 

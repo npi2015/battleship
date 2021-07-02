@@ -50,7 +50,7 @@ def valid_input(coordenadas):
     y = re.match("^[a-jA-J]10$", coordenadas.strip())
     while x is None and y is None:
         print("Esas coordenadas no son validas")
-        coordenadas = input("Por favor introduce coordenadas validas")
+        coordenadas = input("Por favor introduce coordenadas validas ")
         x = re.match("^[a-jA-J][1-9]$", coordenadas.strip())
         y = re.match("^[a-jA-J]10$", coordenadas.strip())
     columna = lista_de_letras.index(coordenadas.strip()[0].upper())
