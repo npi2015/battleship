@@ -20,7 +20,7 @@ if __name__ == '__main__':
         if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
             print("Ha ganado la maquina")
             pinta_1_tablero(tablero_maquina, "Tablero de la maquina")
-            pinta_1_tablero(tablero_usuario, "Tu tablero")
+            pinta_1_tablero(tablero_usuario, "        Tu tablero")
             juego_en_progreso = False
         else:
             # Imprimimos los golpes que ha dado el usuario
@@ -33,7 +33,7 @@ if __name__ == '__main__':
             # Imprimimos los golpes recibidos por el usuario
             # pinta_1_tablero(tablero_usuario, "        Tu tablero")
             print("\n TU TURNO")
-            pinta_2_tableros(tablero1, tablero2, '        Tu tablero', '    Impactos en el contario')
+            pinta_2_tableros(tablero_usuario, tablero_usuario_golpes, '        Tu tablero', '    Impactos en el contario')
 
             # Miramos si ha ganado la maquina
             if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
