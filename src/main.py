@@ -14,7 +14,7 @@ if __name__ == '__main__':
         # Turno del usuario
         coordenadas = input("A que coordenadas quieres disparar")
         coordenada_x, coordenada_y = valid_input(coordenadas)
-        tablero_usuario_golpes = disparar(tablero_maquina, coordenada_x, coordenada_y, random = True)
+        tablero_usuario_golpes = disparar(tablero_maquina, coordenada_x, coordenada_y)
         # Checkear si hemos hundido todos los barcos
         if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
             print("Ha ganado la maquina")

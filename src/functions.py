@@ -52,7 +52,7 @@ def valid_input(coordenadas):
         coordenadas = input("Por favor introduce coordenadas validas")
         x = re.match("^[a-jA-J][1-9]$", coordenadas.strip())
         y = re.match("^[a-jA-J]10$", coordenadas.strip())
-    columna = lista_de_letras.index(coordenadas.strip()[0])
+    columna = lista_de_letras.index(coordenadas.strip()[0].upper())
     if x:
         fila = int(coordenadas.strip()[1]) - 1
     if y:
