@@ -202,7 +202,7 @@ def crea_tablero_usuario(ancho, alto):
             pinta_1_tablero(tablero, '        Tu tablero')
             posicionar_barco_usuario(tablero, barco)
 
-            aleatorio_user = input('¿Quieres que los siguientes barcos se posicionen aleatoriamente? (Y): ')
+            aleatorio_user = input('\n¿Quieres que los siguientes barcos se posicionen aleatoriamente? (Y): ')
             if aleatorio_user.strip().upper() == 'Y':
                 aleatorio = True
 
