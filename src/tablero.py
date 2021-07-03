@@ -182,7 +182,7 @@ def crea_tablero_usuario(ancho, alto):
     """
 
     print('''\nAntes de empezar el juego vamos a crear tu tablero introduciendo los siguientes barcos:
-    - 1 portaaviones que ocupa 4 posiciones
+    - 1 portaaviones que ocupa 4 espacios
     - 2 acorazados que ocupan 3 espacios cada uno
     - 3 fragatas que ocupan 2 espacios cada una
     - 4 submarinos que ocupan 1 espacio cada uno\n''')
