@@ -5,7 +5,7 @@ from string import ascii_uppercase
 
 def disparar(tablero, coordenada_x, coordenada_y, random = False) :
     """Toma unas coordenadas y dispara. Tres casos se contemplan:
-    1) Las coordenadas coinciden con un barco del enemigo -> La funcion se vuelve a llamar con nuevas coordenadas
+    1) Las coordenadas coinciden con un barco del enemigo -> La función se vuelve a llamar con nuevas coordenadas
     2) Las coordenadas coinciden con una posición a la que ya se ha disparado -> La función se vuelve a llamar con nuevas coordenadas
     3) Las coordenadas coinciden con una posición en la que no hay nada -> La función acaba y pasa a ser el siguiente turno
 
@@ -27,7 +27,7 @@ def disparar(tablero, coordenada_x, coordenada_y, random = False) :
         tablero[coordenada_x, coordenada_y] = "X"
         if random is False:
             print("Impacto, puedes disparar de nuevo")
-            coordenadas = input("Introduce nuevas coordenadas: ")
+            coordenadas = input("\nIntroduce nuevas coordenadas (formato: A7): ")
             usuario_coordenada_y, usuario_coordenada_x = valid_input(coordenadas)
             disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
 
@@ -45,7 +45,7 @@ def disparar(tablero, coordenada_x, coordenada_y, random = False) :
 
         else:
             print("Ahí ya has disparado")
-            coordenadas = input("Introduce nuevas coordenadas: ")
+            coordenadas = input("\nIntroduce nuevas coordenadas (formato: A7): ")
             usuario_coordenada_y, usuario_coordenada_x = valid_input(coordenadas)
             disparar(tablero, usuario_coordenada_x, usuario_coordenada_y)
     # Agua
@@ -58,17 +58,17 @@ def disparar(tablero, coordenada_x, coordenada_y, random = False) :
         else:
             print("La máquina ha fallado")
 
-    tablero = np.where(np.isin(tablero,["1", "2", "3", "4"]) , " ", tablero)
+    tablero = np.where(np.isin(tablero, ["1", "2", "3", "4"]), " ", tablero)
     return tablero
 
 
 def valid_input(coordenadas):
-    '''Comprueba si un string son coordenadas validas. En el caso de que no lo sean, las vuelve a pedir hasta que
-    se introduzcan coordenadas validas
+    '''Comprueba si un string son coordenadas válidas. En el caso de que no lo sean, las vuelve a pedir hasta que
+    se introduzcan coordenadas válidas
 
     params:
         Coordenadas (string): las coordenadas que quiera uno meter, pueden ser lo que quieras porque la función solo
-                              sale del while si es algo valida
+                              sale del while si es algo válida
     Returns:
         coordenada_x -> columna de la coordenada introducida por el usuario
         coordenada_y -> fila de la coordenada introducida por el usuario
@@ -80,8 +80,8 @@ def valid_input(coordenadas):
     y = re.match("^[a-jA-J]10$", coordenadas.strip())
     # Si no hay un match, el objeto match devuelve None
     while x is None and y is None:
-        print("Esas coordenadas no son validas")
-        coordenadas = input("Por favor introduce coordenadas validas ")
+        print("Esas coordenadas no son válidas")
+        coordenadas = input("Por favor introduce coordenadas válidas (formato: A7):")
         x = re.match("^[a-jA-J][1-9]$", coordenadas.strip())
         y = re.match("^[a-jA-J]10$", coordenadas.strip())
     columna = lista_de_letras.index(coordenadas.strip()[0].upper())
@@ -93,6 +93,12 @@ def valid_input(coordenadas):
     return columna, fila
 
 def pinta_1_tablero(tablero, titulo):
+    '''
+    Función que pinta un tablero con columnas (A-J) y filas (1-10).
+    :param tablero: (array) tablero que se quiere pintar
+    :param titulo: (string) título que lleva el tablero
+    '''
+
     print(titulo)
     print('    ===================')
     print('   ', *list(ascii_uppercase[:10]))
@@ -107,6 +113,14 @@ def pinta_1_tablero(tablero, titulo):
 
 
 def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
+    '''
+    Función que pinta dos tableros, uno al lado del otro, con columnas (A-J) y filas (1-10).
+    :param tablero1: (array) tablero que se quiere pintar a la izquierda
+    :param tablero2: (array) tablero que se quiere pintar a la derecha
+    :param titulo1: (string) título que lleva el tablero de la izquierda
+    :param titulo2: (string) título que lleva el tablero de la derecha
+    '''
+
     print()
     print(titulo1, '     ', titulo2)
     print('    ===================       ===================')
@@ -122,4 +136,3 @@ def pinta_2_tableros(tablero1, tablero2, titulo1, titulo2):
         print('|')
 
     print('    -------------------       -------------------')
-

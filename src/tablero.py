@@ -1,24 +1,23 @@
 import numpy as np
-from visualizacion import pinta_1_tablero
+from functions import pinta_1_tablero
 
 
 def input_barco(tamanio):
-    '''
+    """
     Función que pide al usuario, y verifica, las coordenadas y orientación para un barco
-
     :param tamanio: tamaño del barco a pintar
-    :return: 3 strings:
+    :return: (strings)
                 - y (fila)
                 - x (columna)
                 - orientación
-    '''
+    """
 
     barcos = {4: "portaaviones", 3: "acorazado", 2: "fragata", 1: "submarino"}
     columnas = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9}
     filas = list(map(str, list(range(1, 11))))
     nseo = ['N', 'S', 'E', 'O']
 
-    ## Inicialización en caso de que el tamanio sea 1 y no lo pida al usuario
+    # Inicialización en caso de que el tamanio sea 1 y no lo pida al usuario
     orientacion_user = 'N'
 
     print(f'\nVamos a posicionar un {barcos[tamanio]} de tamaño {tamanio}')
@@ -183,15 +182,15 @@ def crea_tablero_usuario(ancho, alto):
     """
 
     print('''\nAntes de empezar el juego vamos a crear tu tablero introduciendo los siguientes barcos:
-    - 1 barco  de tamaño 4
-    - 2 barcos de tamaño 3
-    - 3 barcos de tamaño 2 y
-    - 4 barcos de tamaño 1\n''')
+    - 1 portaaviones que ocupa 4 posiciones
+    - 2 acorazados que ocupan 3 espacios cada uno
+    - 3 fragatas que ocupan 2 espacios cada una
+    - 4 submarinos que ocupan 1 espacio cada uno\n''')
 
     tablero = np.full((alto, ancho), ' ')
     barcos = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]
 
-    aleatorio_user = input('¿Quieres que los barcos se posicionen aleatoriamente? (Y): ')
+    aleatorio_user = input('¿Quieres que los barcos se posicionen aleatoriamente? (Y): \n')
     if aleatorio_user.strip().upper() == 'Y':
         aleatorio = True
     else:
