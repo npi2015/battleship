@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
         # Miramos si ha ganado el usuario
         if not np.any(np.isin(tablero_maquina, ["1", "2", "3", "4"])):
-            print("¡Has ganado!")
+            print("\n¡Has ganado!")
             pinta_2_tableros(tablero_usuario, tablero_maquina, '        Tu tablero', '    Tablero de la máquina')
             juego_en_progreso = False
 
@@ -45,8 +45,8 @@ if __name__ == '__main__':
 
             # Checkear si todos nuestros barcos estan hundidos -> maquina gana
             if not np.any(np.isin(tablero_usuario, ["1", "2", "3", "4"])):
-                print("Ha ganado la máquina")
-                pinta_2_tableros(tablero_maquina, tablero_usuario, "    Tablero de la máquina", '    Tu tablero')
+                print("\nHa ganado la máquina")
+                pinta_2_tableros(tablero_maquina, tablero_usuario, "   Tablero de la máquina", '     Tu tablero')
                 juego_en_progreso = False
 
-print("FIN DEL JUEGO")
+print("\nFIN DEL JUEGO")
