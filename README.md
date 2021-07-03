@@ -1,16 +1,16 @@
 # Battleship
 
-Juego de hundir la flota escrito usando numpy. El objetivo del juego es hundir todos los barcos del enemigo, antes de que él consiga hundir los tuyos.
+Juego de hundir la flota desarrollado usando numpy. El objetivo del juego es hundir todos los barcos del enemigo, antes de que él consiga hundir los tuyos.
 
-**!El primer jugador en quedarse sin barcos pierde!**
+**¡El primer jugador en quedarse sin barcos pierde!**
 
 ## Instrucciones
 
-* El tablero se compone de 100 posiciones, de los cuales los barcos ocuparán 20. 
+* El tablero se compone de 100 posiciones, de las cuales los barcos ocuparán 20. 
 
 * Hay un total de 10 barcos
 
-    * 1 portaaviones que ocupa 4 posiciones
+    * 1 portaaviones que ocupa 4 espacios
     * 2 acorazados que ocupan 3 espacios cada uno
     * 3 fragatas que ocupan 2 espacios cada una
     * 4 submarinos que ocupan 1 espacio cada uno
@@ -19,9 +19,9 @@ Juego de hundir la flota escrito usando numpy. El objetivo del juego es hundir t
 
 * No puede haber dos barcos en la misma posición. 
 
-* En cada turno, puedes disparar a una coordenada a la que no hayas disparado antes en el turno del enemigo.
+* En cada turno, puedes disparar a una coordenada en la que no hayas disparado antes.
   1) Si das a uno de los barcos del contrincante, te vuelve a tocar
-  2) Si fallas, y tu disparo cae al agua, le toca disparar a la maquina
+  2) Si fallas, y tu disparo cae al agua, le toca disparar a la máquina
   
 ## El tablero
 El tablero está compuesto de 10 columnas (A-J), y 10 filas (1-10). Cada vez que se coloca un barco, el usuario tiene la opción de colocar de manera aleatoria todos los demás.
@@ -42,7 +42,7 @@ El tablero está compuesto de 10 columnas (A-J), y 10 filas (1-10). Cada vez que
 ```
 Los numeros presentes en el tablero son los barcos. Los números representan los espacios ocupados por cada uno, de tal manera que los 3 representan los acorazados, los 4 el portaaviones, y así para los 4 tipos de barco. 
 
-Cuando se dispara, sí el impacto da en uno de los barcos del enemigo, este impacto se mostrará con una "X" en el tablero. En caso contrario, se mostrará un guion "-". 
+Cuando se dispara, si el impacto da en uno de los barcos del enemigo, este impacto se mostrará con una "X" en el tablero. En caso contrario, se mostrará un guion "-". 
 
 En el siguiente caso, el jugador ha dado a uno de los barcos en la posición H8 del enemigo, pero al disparar a la posición D5 ha fallado.
 
