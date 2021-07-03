@@ -17,7 +17,8 @@ if __name__ == '__main__':
     """)
     tablero_maquina = crea_tablero_aleatorio(10, 10)
     tablero_usuario = crea_tablero_usuario(10, 10)
-    pinta_1_tablero(tablero_usuario, "        Tu tablero")
+    pinta_1_tablero(tablero_usuario, "\n        Tu tablero")
+    print("\nCOMIENZA EL JUEGO")
     while juego_en_progreso:
         # Turno del usuario
         coordenadas = input("\n¿A qué coordenadas quieres disparar? (formato: A7) ")
